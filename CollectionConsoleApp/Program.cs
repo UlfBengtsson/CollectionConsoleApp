@@ -10,8 +10,6 @@ namespace CollectionConsoleApp
         {
             DictionaryEx();
 
-
-
         }//end of main
 
 
