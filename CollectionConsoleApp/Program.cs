@@ -8,11 +8,59 @@ namespace CollectionConsoleApp
     {
         static void Main(string[] args)
         {
-            DictionaryEx();
+            ListEx();
 
         }//end of main
 
+        static void ListEx()
+        {
+            List<double> tempeturs = new List<double>();
 
+            tempeturs.Add(6.1);
+            tempeturs.Add(9.3);
+            tempeturs.Add(14.2);
+            tempeturs.Add(17.0);
+            tempeturs.Add(17.3);
+
+            Console.WriteLine("Size of capacity list has: " + tempeturs.Capacity);
+            tempeturs.Capacity = 5;//set Capacity to 5
+            Console.WriteLine("list capacity set to 5: " + tempeturs.Capacity);
+
+            for (int index = 0; index < tempeturs.Count; index++)
+            {
+                Console.WriteLine("Temp outside: {0}", tempeturs[index] );
+            }
+
+            Console.WriteLine("index of 14.2: " + tempeturs.IndexOf(14.2));
+        }
+
+
+        static void ArrayEx()
+        {
+            string[] names = new string[5];
+
+            names[2] = "Ola";
+            names[4] = "Sven";
+            names[1] = "Eva";
+            names[0] = "Sara";
+            names[3] = "Hans";
+
+            for (int index = 0; index < names.Length; index++)
+            {
+                Console.WriteLine($"Index: {index} Name: {names[index]}" );
+            }
+
+            //sort
+
+            Array.Sort(names);
+
+            Console.WriteLine("\nafter Array.Sort\n");
+
+            for (int index = 0; index < names.Length; index++)
+            {
+                Console.WriteLine($"Index: {index} Name: {names[index]}");
+            }
+        }
 
         static void DictionaryEx()
         {
