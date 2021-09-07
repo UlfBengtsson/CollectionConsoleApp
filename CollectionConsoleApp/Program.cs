@@ -8,7 +8,44 @@ namespace CollectionConsoleApp
     {
         static void Main(string[] args)
         {
-            ListEx();
+            bool loop = true;
+
+            do
+            {
+                Console.Clear();
+
+                Console.WriteLine("---- Menu ----\n1: ArrayEx\n2: ListEx\n3: DictionaryEx\n0: Exit\n\nPress number to run Example.\n\n");
+
+                char selection = Console.ReadKey(true).KeyChar;
+
+                switch (selection)
+                {
+                    case '1':
+                        ArrayEx();
+                        break;
+
+                    case '2':
+                        ListEx();
+                        break;
+
+                    case '3':
+                        DictionaryEx();
+                        break;
+
+                    case '0':
+                        loop = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid selection");
+                        break;
+                }
+
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey(true);
+
+            } while (loop);
+
 
         }//end of main
 
