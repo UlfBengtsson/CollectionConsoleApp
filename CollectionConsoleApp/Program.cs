@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CollectionConsoleApp
 {
@@ -32,6 +33,29 @@ namespace CollectionConsoleApp
                         DictionaryEx();
                         break;
 
+                    case '4':
+                        int startNumber = 13;
+                        int result = PrimitivVarible(startNumber);
+                        Console.WriteLine($"start number = {startNumber}\nresult number = {result}");
+                        break;
+
+                    case '5':
+                        
+                        StringBuilder stringBuilder = new StringBuilder();
+                        stringBuilder.Append("Hello ");
+
+                        Console.WriteLine("string builder before method: " + stringBuilder);
+                        AddWorld(stringBuilder);
+                        Console.WriteLine("string builder after method: " + stringBuilder);
+
+                        Console.WriteLine("index 4 on stringbuilder is = " + stringBuilder[4]);
+
+                        break;
+
+                    case '6':
+                        SpeedTest();
+                        break;
+
                     case '0':
                         loop = false;
                         break;
@@ -48,6 +72,44 @@ namespace CollectionConsoleApp
 
 
         }//end of main
+
+        private static void SpeedTest()
+        {
+            string starsString = "";
+            DateTime stringStart = DateTime.Now;
+
+            for (int i = 0; i < 10000; i++)
+            {
+                starsString += "*";
+            }
+
+            DateTime stringEnd = DateTime.Now;
+
+            StringBuilder sb = new StringBuilder();
+            DateTime sbStart = DateTime.Now;
+
+            for (int i = 0; i < 10000; i++)
+            {
+                sb.Append("*");
+            }
+
+            DateTime sbEnd = DateTime.Now;
+
+            Console.WriteLine($"string time: {stringEnd - stringStart}");
+            Console.WriteLine($"StringBuilder time: {sbEnd - sbStart}");
+        }
+
+        private static void AddWorld(StringBuilder stringBuilder)//ref to original varible
+        {
+            stringBuilder.Append("world!");
+        }
+
+        static int PrimitivVarible(int numberIn)//int is a copy
+        {
+            numberIn = numberIn + 12;
+
+            return numberIn;
+        }
 
         static void ListEx()
         {
