@@ -45,7 +45,9 @@ namespace CollectionConsoleApp
                         stringBuilder.Append("Hello ");
 
                         Console.WriteLine("string builder before method: " + stringBuilder);
+
                         AddWorld(stringBuilder);
+
                         Console.WriteLine("string builder after method: " + stringBuilder);
 
                         Console.WriteLine("index 4 on stringbuilder is = " + stringBuilder[4]);
@@ -58,6 +60,10 @@ namespace CollectionConsoleApp
 
                     case '7':
                         ExceptionsEx();
+                        break;
+
+                    case '8':
+                        RandomEx();
                         break;
 
                     case '0':
@@ -77,6 +83,30 @@ namespace CollectionConsoleApp
 
         }//end of main
 
+        private static void RandomEx()
+        {
+            Random random = new Random(1);//seed number tells the random what table of random numbers to use
+            //Random random = new Random();//uses the computer clock to get as a seed number
+            //Random random = new Random(DateTime.Now.Ticks);//same as new Random()
+
+            int randomNumber = random.Next();
+
+            Console.WriteLine("Random Number was: " + randomNumber); //0 to 2.1B
+
+
+            Console.WriteLine("0 to 10");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(random.Next(11));// 0-10 max
+            }
+
+            Console.WriteLine("1 to 10");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(random.Next(1,11));//min and max 1-10
+            }
+        }
+
         private static void ExceptionsEx()
         {
             bool notNumber = true;
@@ -89,7 +119,7 @@ namespace CollectionConsoleApp
                 try
                 {
                     int number = Convert.ToInt32(userInput);
-                    notNumber = false;
+                    notNumber = false;//this line of code will not run if Convert above has a exception
                 }
                 catch (FormatException)
                 {
@@ -99,7 +129,7 @@ namespace CollectionConsoleApp
                 {
                     Console.WriteLine("Number was too big for me to handel.");
                 }
-                finally
+                finally//will always run this part
                 {
                     Console.WriteLine("Press any key to continue.");
                     Console.ReadKey(true);
