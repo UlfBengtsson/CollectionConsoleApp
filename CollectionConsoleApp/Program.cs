@@ -56,6 +56,10 @@ namespace CollectionConsoleApp
                         SpeedTest();
                         break;
 
+                    case '7':
+                        ExceptionsEx();
+                        break;
+
                     case '0':
                         loop = false;
                         break;
@@ -72,6 +76,39 @@ namespace CollectionConsoleApp
 
 
         }//end of main
+
+        private static void ExceptionsEx()
+        {
+            bool notNumber = true;
+
+            while (notNumber)
+            {
+                Console.Write("Input number: ");
+                string userInput = Console.ReadLine();
+
+                try
+                {
+                    int number = Convert.ToInt32(userInput);
+                    notNumber = false;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Im unable to use that as a number.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Number was too big for me to handel.");
+                }
+                finally
+                {
+                    Console.WriteLine("Press any key to continue.");
+                    Console.ReadKey(true);
+                    Console.Clear();
+                }
+            }
+            Console.WriteLine("after loop");
+
+        }
 
         private static void SpeedTest()
         {
